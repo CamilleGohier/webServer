@@ -1,4 +1,4 @@
-const WebSocket = require("sw");
+const WebSocket = require("ws");
 const PORT = process.env.PORT || 10000;
 
 const server = new WebSocket.Server({ port: PORT });
