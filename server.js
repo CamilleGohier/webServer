@@ -36,7 +36,7 @@ server.on("connection", ws => {
                 return ws.send("Pseudo ou Mot de passe manquant");
             }
 
-            const { error } = await inscription(username, password);
+            const error = await inscription(username, password);
 
             if (error) {
                 ws.send("Erreur inscription");
