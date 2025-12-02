@@ -12,7 +12,7 @@ const server = new WebSocket.Server({ port: PORT });
 console.log("Serveur WebSocket lancé sur le port ", PORT);
 
 async function inscription(username, password) {
-    return await bdd.from("users").insert({ username, password });
+    await bdd.from("users").insert({ username, password });
 }
 
 async function connexion(username, password) {
@@ -28,7 +28,7 @@ server.on("connection", ws => {
         const args = msg.split(" ");
         const request = args[0].toUpperCase();
 
-        if (request = "INSCRIPTION") {
+        if (request == "INSCRIPTION") {
             const username = args[1];
             const password = args[2];
 
@@ -47,7 +47,7 @@ server.on("connection", ws => {
             return;
         }
 
-        if (request = "CONNEXION") {
+        if (request == "CONNEXION") {
             const username = args[1];
             const password = args[2];
 
